@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+   
+   <link rel="stylesheet" href="{% static 'app4/style.css' %}">
+   <title>Document</title>
+ 
+   <!-- <link rel="stylesheet" href="{% static 'static/shop/style.css' %}"> -->
+</head>
+<body>
+   {% load static %}
+<style>
+    #hello-msg{
+        font-size: 18px;
+        color:#fff;
+        margin-right:20px;
+
+    }
+</style>
+<span class="hello-msg">Hello, {{request.user}}</span>
+<span><a class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+   
+   
+   <!-- search functionality -->
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <form class="card card-sm">
+               <div class="card-body row no-gutters align-items center">
+                  <div class="col">
+                     <input type="search" name="item_name" placeholder="search your favourite dish" class="form-control form-control-borderless">
+
+                  </div>
+                  <div class="col-auto">
+                     <button class="btn btn-success" type="submit" >Search</button>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+
+
+
+      
+<!-- food items display -->
+      <div class="row">
+         {% for food in food_objects %}
+         <div class="col-md-3">
+            <div class="card">
+               <img src="{{ food.image }}" class="card-img-top">
+               <div class="card-body">
+                  <div class="card-title">
+                     <a href="pay">{{food.title }}</a>
+                  </div>
+                  <div class="card-text">
+                    Rs: {{ food.price }}
+                  </div>
+               </div>
+            </div>
+         </div>
+         {% endfor %}   
+      </div>
+   </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

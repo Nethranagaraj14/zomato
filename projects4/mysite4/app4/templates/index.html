@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script> -->
+
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/0/09/Zomato_company_logo.png">
+
+</head>
+<style>
+    ul, li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      a {
+        text-decoration: none;
+      }
+      
+      .navbar {
+        background-color: transparent; 
+        padding: 10px 0; 
+      }
+      
+      .nav-list {
+        display: flex; 
+        justify-content: center;
+      }
+      
+      .nav-list li {
+        margin: 15px 25px; 
+      }
+      
+      
+      .nav-list li a {
+        font-size: 25px; 
+        font-weight: bold; 
+        color: white; 
+        transition: color 0.3s; 
+      }
+      .content {
+        background: transparent(255, 255, 255, 0.7); /* Add a semi-transparent white background for readability */
+        padding: 200px;
+    }
+    h1 {
+      color : red;
+
+    }
+</style>
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'img/style.css' %}">
+<body style="background-image: url('{% static 'app4/img/logo.webp' %}');background-repeat:no-repeat;background-size:100%;">
+    <nav class="navbar">
+          <ul class="nav-list">
+            <li><a href="#">Home</a></li>
+            <li><a href="">Contact</a></li>    
+            <li><a href="#">Services</a></li>    
+            {% if user.is_authenticated %}
+            
+            <li><a href="logout">Logout</a></li>
+            {% else %}
+            <li><a href="register">Signup</a></li>
+            <li><a href="login">Login</a></li>
+            {% endif %}
+          </ul>
+    </nav>
+    <center>
+    <img src="{% static 'app4/img/homepageimg.webp' %}">
+    </center>
+    <div class="content">
+      <p>{{ content }}</p>
+    </div>
+    <h1>CONTACT</h1>
+    <h2>Email id: nethranagaraj1411@gmail.com</h2>
+    <h2>Phone no: 7397554122</h2>
+   
+
+    <h1>ABOUT</h1>
+    <h3>Welcome to ZOMATO!!, where passion meets the plate! We are a community of food enthusiasts dedicated to the art of savoring life through delectable dishes. Our culinary journey began as a humble kitchen experiment, blossoming into a flavorful odyssey. Here, we celebrate the diversity of tastes, aromas, and textures that grace our tables. We invite you to embark on this gastronomic adventure with us, where every recipe tells a story and every meal is a canvas of creativity.</h3>
+    <h3>At Zomato, we believe that food is not just sustenance; it's an expression of culture, a medium for connection, and an exploration of taste. Our team of passionate chefs, home cooks, and foodies share a common vision: to bring you recipes that not only tantalize your taste buds but also inspire you to create culinary magic in your own kitchen. We're dedicated to sourcing the finest ingredients, experimenting with flavors, and presenting you with easy-to-follow recipes that cater to various dietary preferences.</h3>
+     
+    <h1>LOCATION</h1>
+    <h2>iQube,Admin Block,Kumaraguru Institutions,Chinnavedampatti,Coimbatore</h2>
+    <img src="{% static 'app4/img/locationimg.jpg' %}">
+    
+    <h1></h1>
+</body>
+</html>
+
